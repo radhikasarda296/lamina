@@ -1,0 +1,50 @@
+<?php
+$title = 'Beers';
+$this->headTitle($title);
+
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+<p>
+	<a href="<?= $this->url('beer',['action' => 'add']) ?>"> Add new Beer </a>
+</p>
+<table class = "table">
+	<tr>
+		<th>Id</th>
+		<th>Brewery Id</th>
+		<th>Name</th>
+		<th>Cat Id</th>
+		<th>Style Id</th>
+		<th>Abv</th>
+		<th>Ibu</th>
+		<th>Srm</th>
+		<th>Upc</th>
+		<th>File Path</th>
+		<th>Description</th>
+		<th>Add user</th>
+		<th>Last Modified</th>
+		<th>&nbsp;</th>
+	</tr>
+<?php foreach ($beers as $beer) :?>
+	<tr>
+		<td><?= $this->escapeHtml($beer->id) ?></td>
+		<td><?= $this->escapeHtml($beer->brewery_id) ?></td>
+		<td><?= $this->escapeHtml($beer->name) ?></td>
+		<td><?= $this->escapeHtml($beer->cat_id) ?></td>
+		<td><?= $this->escapeHtml($beer->style_id) ?></td>
+		<td><?= $this->escapeHtml($beer->abv) ?></td>
+		<td><?= $this->escapeHtml($beer->ibu) ?></td>
+		<td><?= $this->escapeHtml($beer->srm) ?></td>
+		<td><?= $this->escapeHtml($beer->upc) ?></td>
+		<td><?= $this->escapeHtml($beer->filepath) ?></td>
+		<td><?= $this->escapeHtml($beer->descript) ?></td>
+		<td><?= $this->escapeHtml($beer->add_user) ?></td>
+		<td><?= $this->escapeHtml($beer->last_mod) ?></td>
+		<td>
+			<a href="<?= $this->url('beer',['action' => 'edit','id' => $beer->id]) ?>">
+			Edit</a>
+			<a href="<?= $this->url('beer',['action' => 'delete','id' => $beer->id]) ?>">
+			Delete</a>
+		</td>
+	</tr>
+<?php endforeach; ?>
+</table>
